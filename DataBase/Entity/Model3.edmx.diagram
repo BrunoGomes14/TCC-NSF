@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3663100763e142debb0d17520359725d" Name="Diagram1" ZoomLevel="76">
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_avaliacao_cliente_site" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_cargo" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_cliente" Width="1.5" PointX="7.75" PointY="8" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_controle_entrada" Width="1.5" PointX="12.25" PointY="5.625" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_desc_funcionario" Width="1.5" PointX="5.25" PointY="16.5" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_desc_venda" Width="1.5" PointX="12.25" PointY="1.875" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_despesa" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_estoque" Width="1.5" PointX="12.25" PointY="8.25" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_falta" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_folha_pagamento" Width="1.5" PointX="5.25" PointY="2" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_fornecedor" Width="1.5" PointX="7.75" PointY="3.625" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_funcionario" Width="1.5" PointX="3" PointY="11.125" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_jornada" Width="1.5" PointX="5.25" PointY="9.75" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_login" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_ponto" Width="1.5" PointX="5.25" PointY="19.875" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_produto" Width="1.5" PointX="10" PointY="3" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_salario" Width="1.5" PointX="5.25" PointY="23" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_servico" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.tb_venda_registro" Width="1.5" PointX="10" PointY="8.75" />
+        <EntityTypeShape EntityType="db_a4f62c_oticaModel.fluxo_otica" Width="1.5" PointX="7.75" PointY="12.75" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_funcionario_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_venda_registro_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.fk_tb_controle_entrada_tb_produto1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_desc_funcionario_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_desc_venda_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_desc_venda_ibfk_2" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_estoque_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_falta_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_folha_pagamento_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_produto_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_jornada_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_login_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_ponto_ibfk_1" />
+        <AssociationConnector Association="db_a4f62c_oticaModel.tb_salario_ibfk_1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

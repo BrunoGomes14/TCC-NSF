@@ -1,0 +1,737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D0C5554-9724-4688-9150-D04BCB462404}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TCC</RootNamespace>
+    <AssemblyName>TCC</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.12\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\CargoBusiness.cs" />
+    <Compile Include="Business\ClienteBusiness.cs" />
+    <Compile Include="Business\ControleContasBusiness.cs" />
+    <Compile Include="Business\EmployeesBusiness.cs" />
+    <Compile Include="Business\EstoqueBusiness.cs" />
+    <Compile Include="Business\FaltaBusiness.cs" />
+    <Compile Include="Business\FluxoCaixaBusiness.cs" />
+    <Compile Include="Business\FolhaPagamentoBusiness.cs" />
+    <Compile Include="Business\FornecedorBusiness.cs" />
+    <Compile Include="Business\FuncionarioBusiness.cs" />
+    <Compile Include="Business\Gmail\GmailSender.cs" />
+    <Compile Include="Business\JornadaBusiness.cs" />
+    <Compile Include="Business\LoginBusiness.cs" />
+    <Compile Include="Business\PagamentoBusiness.cs" />
+    <Compile Include="Business\PontoBusiness.cs" />
+    <Compile Include="Business\ProdutoBusiness.cs" />
+    <Compile Include="Business\ReceitaBusiness.cs" />
+    <Compile Include="Business\SalarioBusiness.cs" />
+    <Compile Include="Business\ServicoBusiness.cs" />
+    <Compile Include="Business\SuprimentoBusiness.cs" />
+    <Compile Include="Business\VendaBusiness.cs" />
+    <Compile Include="CookieAwareWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataBase\CargoDatabase.cs" />
+    <Compile Include="DataBase\ClienteDatabase.cs" />
+    <Compile Include="DataBase\ControleEntradaDatabase.cs" />
+    <Compile Include="DataBase\DespesaDataBase.cs" />
+    <Compile Include="DataBase\Entity\ExtensãoModel.cs" />
+    <Compile Include="DataBase\Entity\fluxo_otica.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\Model3.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model3.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\Model3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\Model3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model3.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\ModelEmpresa.cs" />
+    <Compile Include="DataBase\Entity\tb_avaliacao_cliente_site.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_cargo.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_cliente.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_controle_entrada.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_desc_funcionario.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_desc_venda.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_despesa.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_estoque.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_falta.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_folha_pagamento.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_fornecedor.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_funcionario.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_jornada.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_login.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_ponto.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_produto.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_salario.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_servico.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\tb_venda_registro.cs">
+      <DependentUpon>Model3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase\Entity\UsuarioLogadoModel.cs" />
+    <Compile Include="DataBase\Entity\VenderModel.cs" />
+    <Compile Include="DataBase\EstoqueDatabase.cs" />
+    <Compile Include="DataBase\FaltaDatabase.cs" />
+    <Compile Include="DataBase\FluxoCaixa.cs" />
+    <Compile Include="DataBase\FolhaPagamentoDatabase.cs" />
+    <Compile Include="DataBase\FornecedorDatabase.cs" />
+    <Compile Include="DataBase\FuncionarioDataBase.cs" />
+    <Compile Include="DataBase\JornadaDatabase.cs" />
+    <Compile Include="DataBase\LoginDatabase.cs" />
+    <Compile Include="DataBase\PontoDatabase.cs" />
+    <Compile Include="DataBase\ProdutoDatabase.cs" />
+    <Compile Include="DataBase\SalarioDatabase.cs" />
+    <Compile Include="DataBase\ServicoDatabase.cs" />
+    <Compile Include="DataBase\TesteConexaoDatabase.cs" />
+    <Compile Include="DataBase\VendaDatabase.cs" />
+    <Compile Include="Objetos Auxiliares\ConsultaCNPJReceita.cs" />
+    <Compile Include="Objetos Auxiliares\CorreioApi.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Telas\Estoque\frmAlterarRemoverProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Estoque\frmAlterarRemoverProduto.Designer.cs">
+      <DependentUpon>frmAlterarRemoverProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Estoque\frmConsultarProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Estoque\frmConsultarProduto.Designer.cs">
+      <DependentUpon>frmConsultarProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Estoque\frmInserirProduto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Estoque\frmInserirProduto.Designer.cs">
+      <DependentUpon>frmInserirProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Falta\FrmJustificarFalta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Falta\FrmJustificarFalta.Designer.cs">
+      <DependentUpon>FrmJustificarFalta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Financeiro\FrmFluxoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Financeiro\FrmFluxoCaixa.Designer.cs">
+      <DependentUpon>FrmFluxoCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Fornecedor\FrmConsultaCNPJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Fornecedor\FrmConsultaCNPJ.Designer.cs">
+      <DependentUpon>FrmConsultaCNPJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Funcionario\AlterarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Funcionario\AlterarFuncionario.Designer.cs">
+      <DependentUpon>AlterarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Funcionario\FrmConsultarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Funcionario\FrmConsultarFuncionario.Designer.cs">
+      <DependentUpon>FrmConsultarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Jornada\FrmAlterarJornada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Jornada\FrmAlterarJornada.Designer.cs">
+      <DependentUpon>FrmAlterarJornada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Login\FrmConferirCodigo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Login\FrmConferirCodigo.Designer.cs">
+      <DependentUpon>FrmConferirCodigo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Login\FrmEsqueciSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Login\FrmEsqueciSenha.Designer.cs">
+      <DependentUpon>FrmEsqueciSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Login\FrmInformacoesConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Login\FrmInformacoesConta.Designer.cs">
+      <DependentUpon>FrmInformacoesConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Login\FrmInserirLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Login\FrmInserirLogin.Designer.cs">
+      <DependentUpon>FrmInserirLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Login\FrmLoginOtica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Login\FrmLoginOtica.Designer.cs">
+      <DependentUpon>FrmLoginOtica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Login\FrmTrocarSenha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Login\FrmTrocarSenha.Designer.cs">
+      <DependentUpon>FrmTrocarSenha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuGerente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuGerente.Designer.cs">
+      <DependentUpon>FrmMenuGerente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuOperadorCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuOperadorCaixa.Designer.cs">
+      <DependentUpon>FrmMenuOperadorCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuSuperVisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuSuperVisor.Designer.cs">
+      <DependentUpon>FrmMenuSuperVisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuTemporario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuTemporario.Designer.cs">
+      <DependentUpon>FrmMenuTemporario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Menus\FrmMenuVendedor.Designer.cs">
+      <DependentUpon>FrmMenuVendedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\RH\FrmAlterarJornada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\RH\FrmAlterarJornada.Designer.cs">
+      <DependentUpon>FrmAlterarJornada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\RH\FrmConsultarFolhaPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\RH\FrmConsultarFolhaPagamento.Designer.cs">
+      <DependentUpon>FrmConsultarFolhaPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Fornecedor\FrmConsultarFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Fornecedor\FrmConsultarFornecedor.Designer.cs">
+      <DependentUpon>FrmConsultarFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Jornada\FrmConsultarJornada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Jornada\FrmConsultarJornada.Designer.cs">
+      <DependentUpon>FrmConsultarJornada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\RH\FrmConsultarSalario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\RH\FrmConsultarSalario.Designer.cs">
+      <DependentUpon>FrmConsultarSalario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\RH\FrmGeradorHoleride.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\RH\FrmGeradorHoleride.Designer.cs">
+      <DependentUpon>FrmGeradorHoleride.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\RH\FrmHolerite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\RH\FrmHolerite.Designer.cs">
+      <DependentUpon>FrmHolerite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Servicos\InserirServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Servicos\InserirServico.Designer.cs">
+      <DependentUpon>InserirServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Cargo\FrmDeletarCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Cargo\FrmDeletarCargo.Designer.cs">
+      <DependentUpon>FrmDeletarCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Cliente\FrmDeletarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Cliente\FrmDeletarCliente.Designer.cs">
+      <DependentUpon>FrmDeletarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Despesas\FrmDeletarDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Despesas\FrmDeletarDespesa.Designer.cs">
+      <DependentUpon>FrmDeletarDespesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Falta\FrmDeletarFalta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Falta\FrmDeletarFalta.Designer.cs">
+      <DependentUpon>FrmDeletarFalta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\RH\FrmDeletarFolhaPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\RH\FrmDeletarFolhaPagamento.Designer.cs">
+      <DependentUpon>FrmDeletarFolhaPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Fornecedor\FrmDeletarFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Fornecedor\FrmDeletarFornecedor.Designer.cs">
+      <DependentUpon>FrmDeletarFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\RH\FrmDeletarJornada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\RH\FrmDeletarJornada.Designer.cs">
+      <DependentUpon>FrmDeletarJornada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Ponto\FrmDeletarPonto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Ponto\FrmDeletarPonto.Designer.cs">
+      <DependentUpon>FrmDeletarPonto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Salario\FrmDeletarSalario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Salario\FrmDeletarSalario.Designer.cs">
+      <DependentUpon>FrmDeletarSalario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Servicos\FrmDeletarServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Servicos\FrmDeletarServico.Designer.cs">
+      <DependentUpon>FrmDeletarServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Venda\FrmDeletarVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Venda\FrmDeletarVenda.Designer.cs">
+      <DependentUpon>FrmDeletarVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Cargo\FrmInserirCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Cargo\FrmInserirCargo.Designer.cs">
+      <DependentUpon>FrmInserirCargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Cliente\FrmInserirCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Cliente\FrmInserirCliente.Designer.cs">
+      <DependentUpon>FrmInserirCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Despesas\FrmInserirControleConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Despesas\FrmInserirControleConta.Designer.cs">
+      <DependentUpon>FrmInserirControleConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Despesas\FrmInserirDespesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Despesas\FrmInserirDespesa.Designer.cs">
+      <DependentUpon>FrmInserirDespesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Falta\FrmInserirFalta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Falta\FrmInserirFalta.Designer.cs">
+      <DependentUpon>FrmInserirFalta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\RH\FrmInserirFolhaPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\RH\FrmInserirFolhaPagamento.Designer.cs">
+      <DependentUpon>FrmInserirFolhaPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Fornecedor\FrmInserirFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Fornecedor\FrmInserirFornecedor.Designer.cs">
+      <DependentUpon>FrmInserirFornecedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Funcionario\FrmInserirFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Funcionario\FrmInserirFuncionario.Designer.cs">
+      <DependentUpon>FrmInserirFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\RH\FrmInserirJornada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\RH\FrmInserirJornada.Designer.cs">
+      <DependentUpon>FrmInserirJornada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Ponto\FrmInserirPonto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Ponto\FrmInserirPonto.Designer.cs">
+      <DependentUpon>FrmInserirPonto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Salario\FrmInserirSalario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Salario\FrmInserirSalario.Designer.cs">
+      <DependentUpon>FrmInserirSalario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Venda\FrmInserirVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Venda\FrmInserirVenda.Designer.cs">
+      <DependentUpon>FrmInserirVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Telas\Login\Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\Login\Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Telas\Estoque\frmAlterarRemoverProduto.resx">
+      <DependentUpon>frmAlterarRemoverProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Estoque\frmConsultarProduto.resx">
+      <DependentUpon>frmConsultarProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Estoque\frmInserirProduto.resx">
+      <DependentUpon>frmInserirProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Falta\FrmJustificarFalta.resx">
+      <DependentUpon>FrmJustificarFalta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Financeiro\FrmFluxoCaixa.resx">
+      <DependentUpon>FrmFluxoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Fornecedor\FrmConsultaCNPJ.resx">
+      <DependentUpon>FrmConsultaCNPJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Funcionario\AlterarFuncionario.resx">
+      <DependentUpon>AlterarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Funcionario\FrmConsultarFuncionario.resx">
+      <DependentUpon>FrmConsultarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Jornada\FrmAlterarJornada.resx">
+      <DependentUpon>FrmAlterarJornada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Login\FrmConferirCodigo.resx">
+      <DependentUpon>FrmConferirCodigo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Login\FrmEsqueciSenha.resx">
+      <DependentUpon>FrmEsqueciSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Login\FrmInformacoesConta.resx">
+      <DependentUpon>FrmInformacoesConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Login\FrmInserirLogin.resx">
+      <DependentUpon>FrmInserirLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Login\FrmLoginOtica.resx">
+      <DependentUpon>FrmLoginOtica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Login\FrmTrocarSenha.resx">
+      <DependentUpon>FrmTrocarSenha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Menus\FrmMenuGerente.resx">
+      <DependentUpon>FrmMenuGerente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Menus\FrmMenuOperadorCaixa.resx">
+      <DependentUpon>FrmMenuOperadorCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Menus\FrmMenuSuperVisor.resx">
+      <DependentUpon>FrmMenuSuperVisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Menus\FrmMenuTemporario.resx">
+      <DependentUpon>FrmMenuTemporario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Menus\FrmMenuVendedor.resx">
+      <DependentUpon>FrmMenuVendedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\RH\FrmConsultarFolhaPagamento.resx">
+      <DependentUpon>FrmConsultarFolhaPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Fornecedor\FrmConsultarFornecedor.resx">
+      <DependentUpon>FrmConsultarFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Jornada\FrmConsultarJornada.resx">
+      <DependentUpon>FrmConsultarJornada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\RH\FrmConsultarSalario.resx">
+      <DependentUpon>FrmConsultarSalario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\RH\FrmGeradorHoleride.resx">
+      <DependentUpon>FrmGeradorHoleride.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\RH\FrmHolerite.resx">
+      <DependentUpon>FrmHolerite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Servicos\InserirServico.resx">
+      <DependentUpon>InserirServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Cargo\FrmDeletarCargo.resx">
+      <DependentUpon>FrmDeletarCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Cliente\FrmDeletarCliente.resx">
+      <DependentUpon>FrmDeletarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Despesas\FrmDeletarDespesa.resx">
+      <DependentUpon>FrmDeletarDespesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Falta\FrmDeletarFalta.resx">
+      <DependentUpon>FrmDeletarFalta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\RH\FrmDeletarFolhaPagamento.resx">
+      <DependentUpon>FrmDeletarFolhaPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Fornecedor\FrmDeletarFornecedor.resx">
+      <DependentUpon>FrmDeletarFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\RH\FrmDeletarJornada.resx">
+      <DependentUpon>FrmDeletarJornada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Ponto\FrmDeletarPonto.resx">
+      <DependentUpon>FrmDeletarPonto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Salario\FrmDeletarSalario.resx">
+      <DependentUpon>FrmDeletarSalario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Servicos\FrmDeletarServico.resx">
+      <DependentUpon>FrmDeletarServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Venda\FrmDeletarVenda.resx">
+      <DependentUpon>FrmDeletarVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Cargo\FrmInserirCargo.resx">
+      <DependentUpon>FrmInserirCargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Cliente\FrmInserirCliente.resx">
+      <DependentUpon>FrmInserirCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Despesas\FrmInserirControleConta.resx">
+      <DependentUpon>FrmInserirControleConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Despesas\FrmInserirDespesa.resx">
+      <DependentUpon>FrmInserirDespesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Falta\FrmInserirFalta.resx">
+      <DependentUpon>FrmInserirFalta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\RH\FrmInserirFolhaPagamento.resx">
+      <DependentUpon>FrmInserirFolhaPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Fornecedor\FrmInserirFornecedor.resx">
+      <DependentUpon>FrmInserirFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Funcionario\FrmInserirFuncionario.resx">
+      <DependentUpon>FrmInserirFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\RH\FrmInserirJornada.resx">
+      <DependentUpon>FrmInserirJornada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Ponto\FrmInserirPonto.resx">
+      <DependentUpon>FrmInserirPonto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Salario\FrmInserirSalario.resx">
+      <DependentUpon>FrmInserirSalario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Venda\FrmInserirVenda.resx">
+      <DependentUpon>FrmInserirVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\Login\Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DataBase\Entity\Model3.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model3.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataBase\Entity\Model3.edmx.diagram">
+      <DependentUpon>Model3.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\source.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DataBase\Entity\Model3.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model3.edmx</DependentUpon>
+      <LastGenOutput>Model3.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataBase\Entity\Model3.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model3.edmx</DependentUpon>
+      <LastGenOutput>Model3.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\menu1.png" />
+    <None Include="Resources\caret-down1.png" />
+    <None Include="Resources\caret-down.png" />
+    <None Include="Resources\reply.png" />
+    <None Include="Resources\menu.png" />
+    <None Include="Resources\sort-down.png" />
+    <None Include="Resources\seta baixo 2.png" />
+    <None Include="Resources\seta baixo.png" />
+    <None Include="Resources\seta.jpg" />
+    <None Include="Resources\Imagem21.png" />
+    <None Include="Resources\Imagem11.png" />
+    <None Include="Resources\364-01-512.png" />
+    <None Include="Resources\Captura de Tela %28832%29.png" />
+    <None Include="Resources\Captura de Tela %28829%29.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\find-512.png" />
+    <None Include="Resources\fundin.png" />
+    <None Include="Resources\fundotransparente.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
